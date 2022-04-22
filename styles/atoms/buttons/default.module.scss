@@ -1,0 +1,111 @@
+@import "styles/variables";
+@import "styles/mixins";
+
+.button {
+    display: inline-block;
+    font-weight: $font-weight-normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    border-radius: $border-radius;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: button;
+    overflow: visible;
+    margin: 0;
+    padding: $btn-padding-y $btn-padding-x;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    border: 0 solid transparent;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.link {
+    display: inline-block;
+    font-weight: $font-weight-normal;
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    font-size: $font-size-base;
+    line-height: 1.5;
+    border-radius: $border-radius;
+    transition: color 0.15s ease-in-out, background-color 0.15s ease-in-out,
+        border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+    -webkit-appearance: button;
+    overflow: visible;
+    margin: 0;
+    padding: 0;
+    font-family: $font-family-sans-serif;
+    text-transform: uppercase;
+    border: 0 solid transparent;
+
+    &:hover {
+        text-decoration: none;
+    }
+}
+
+.swipe-to-top {
+    -webkit-transform: perspective(1px) translateZ(0);
+    transform: perspective(1px) translateZ(0);
+    position: relative;
+    -webkit-transition-property: color;
+    transition-property: color;
+    -webkit-transition-duration: 0.4s;
+    transition-duration: 0.4s;
+
+    &:before {
+        content: "";
+        position: absolute;
+        z-index: -1;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        -webkit-transform: scaleY(0);
+        transform: scaleY(0);
+        -webkit-transform-origin: 50% 100%;
+        transform-origin: 50% 100%;
+        -webkit-transition-property: transform;
+        transition-property: transform;
+        -webkit-transition-duration: 0.4s;
+        transition-duration: 0.4s;
+        -webkit-transition-timing-function: ease-out;
+        transition-timing-function: ease-out;
+    }
+
+    &:not([disabled]) {
+        &:hover {
+            &:before {
+                -webkit-transform: scaleY(1);
+                transform: scaleY(1);
+            }
+        }
+    }
+}
+
+@each $style, $color in $btn-styles {
+    .link-#{$style} {
+        @include link-style($color, $style);
+    }
+
+    .btn-#{$style} {
+        @include btn-style($color, $style);
+    }
+
+    .btn-outline-#{$style} {
+        @include btn-outline-style($color);
+    }
+}
+
+@each $size, $style in $btn-sizes {
+    .btn-#{$size} {
+        @include btn-sizes($style);
+    }
+}

@@ -1,0 +1,110 @@
+@use "sass:list";
+
+@mixin btn-outline-style($color) {
+    color: $color;
+    @if (type-of($color) == "list") {
+        $color: list.nth($color, 1);
+    }
+    outline-width: $btn-border-width;
+    outline-offset: -$btn-border-width;
+    outline-style: $btn-border-style;
+    background-color: transparent !important;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+
+    &[disabled] {
+        cursor: not-allowed;
+        color: lighten(list.nth($color, 1), 30%);
+        outline-color: lighten(list.nth($color, 1), 30%);
+    }
+}
+
+@mixin btn-sizes($styles) {
+    @each $prop, $val in $styles {
+        #{$prop}: $val;
+    }
+}
+
+@mixin btn-style($color, $style) {
+    $text: $light;
+    @if (type-of($color) == "list") {
+        $color: list.nth($color, 1);
+        $text: list.nth($color, 2);
+    }
+
+    color: $text;
+    background-color: $color;
+    border-color: $color;
+    transition: background-color 0.4s ease-in-out;
+
+    &:hover {
+        background-color: darken(list.nth($color, 1), 10%);
+        border-color: darken(list.nth($color, 1), 10%);
+        color: $text;
+    }
+
+    &.swipe-to-top {
+        background-color: list.nth($color, 1);
+    }
+
+    &:before {
+        background-color: darken(list.nth($color, 1), 10%);
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        background-color: lighten(list.nth($color, 1), 20%);
+
+        &:hover {
+            background-color: lighten(list.nth($color, 1), 20%);
+        }
+    }
+}
+
+@mixin link-style($color, $style) {
+    $text: $light;
+    @if (type-of($color) == "list") {
+        $color: list.nth($color, 1);
+        $text: list.nth($color, 2);
+    }
+
+    color: list.nth($color, 1);
+    background-color: transparent;
+    transition: color 0.4s ease-in-out;
+    position: relative;
+
+    &:hover {
+        color: darken(list.nth($color, 1), 30%);
+
+        &:before {
+            width: 100%;
+            left: 0;
+        }
+    }
+
+    &:before {
+        content: "";
+        display: block;
+        position: absolute;
+        background-color: list.nth($color, 1);
+        height: $btn-border-width;
+        width: 0%;
+        bottom: 0;
+        left: 50%;
+        transition: all 0.5s;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        color: lighten(list.nth($color, 1), 20%);
+
+        &:before {
+            display: none;
+        }
+
+        &:hover {
+            color: lighten(list.nth($color, 1), 20%);
+        }
+    }
+}
