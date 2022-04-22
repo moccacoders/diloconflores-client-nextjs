@@ -3,7 +3,7 @@ import Button, { Link } from "atoms/Buttons"
 import { Title } from "atoms/Typography"
 
 export default function Timeline({ userName }) {
-	const a = "hello"
+	const b = "hello"
 
 	return (
 		<AppLayout>
