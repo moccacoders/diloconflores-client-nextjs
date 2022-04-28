@@ -1,4 +1,4 @@
-import React, { Fragment, useEffect, useState } from "react"
+import { Fragment } from "react"
 import styles from "styles/atoms/buttons/default.module.scss"
 
 const Button = ({
@@ -34,10 +34,8 @@ const Button = ({
         btnClass.unshift(styles[`btn-${style}`])
     if (!btnClass.includes("btn")) btnClass.unshift(styles.button)
 
-    console.log("size", size, sizes.includes(size))
-
-    if (!!swipeToTop) btnClass.push(styles["swipe-to-top"])
-    if (!!outline) btnClass.push(styles[`btn-outline-${style}`])
+    if (swipeToTop) btnClass.push(styles["swipe-to-top"])
+    if (outline) btnClass.push(styles[`btn-outline-${style}`])
 
     btnClass = btnClass.filter((a) => !!a)
     btnClass = btnClass.join(" ")

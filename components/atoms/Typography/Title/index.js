@@ -1,4 +1,3 @@
-import React, { Fragment } from "react"
 import styles from "styles/atoms/typography/default.module.scss"
 
 const Title = ({ size = "large", color, style, weight, children }) => {
