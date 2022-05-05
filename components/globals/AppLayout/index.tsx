@@ -1,8 +1,13 @@
+import { FunctionComponent } from "react"
 import Head from "next/head"
 import Image from "next/image"
 import styles from "styles/Main.module.scss"
+import { IAppLayoutProps } from "interfaces/general"
 
-export default function AppLayout({ children, title: pageTitle }) {
+const AppLayout: FunctionComponent<IAppLayoutProps> = ({
+    children,
+    title: pageTitle,
+}) => {
     return (
         <div className={styles.container}>
             <Head>
@@ -34,3 +39,5 @@ export default function AppLayout({ children, title: pageTitle }) {
         </div>
     )
 }
+
+export default AppLayout

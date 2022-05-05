@@ -1,10 +1,11 @@
-import { Fragment } from "react"
-import Link from "next/link"
+import { FunctionComponent } from "react"
+import Link, { LinkProps } from "next/link"
 import styles from "styles/atoms/buttons/default.module.scss"
+import { IButtonLink } from "interfaces/buttons"
 
-const BtnLink = ({
+const BtnLink: FunctionComponent<IButtonLink> = ({
     style,
-    disabled,
+    disabled = false,
     className,
     size,
     swipeToTop = true,
@@ -26,7 +27,7 @@ const BtnLink = ({
         "link",
     ]
     const sizes = ["sm", "lg"]
-    let btnClass = className ?? ""
+    let btnClass: any = className ?? ""
 
     if (!button) swipeToTop = false
     if (!types.includes(style)) style = types[8]
@@ -54,18 +55,18 @@ const BtnLink = ({
     }
 
     return (
-        <Fragment>
+        <>
             <Content>
                 <a
                     className={btnClass}
-                    disabled={disabled}
                     href={props.href}
                     target={target}
+                    disabled={disabled}
                 >
                     {children}
                 </a>
             </Content>
-        </Fragment>
+        </>
     )
 }
 

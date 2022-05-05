@@ -1,7 +1,9 @@
-import { Fragment } from "react"
+import { Fragment, FunctionComponent } from "react"
 import styles from "styles/atoms/buttons/default.module.scss"
+import Icon from "atoms/icon"
+import { IButtonDefault } from "interfaces/buttons"
 
-const Button = ({
+const Button: FunctionComponent<IButtonDefault> = ({
     style,
     type = "button",
     className,
@@ -11,7 +13,8 @@ const Button = ({
     children,
     swipeToTop = true,
     outline,
-    ...props
+    icon = null,
+    iconPosition = "left",
 }) => {
     const types = [
         "primary",
@@ -47,8 +50,13 @@ const Button = ({
                 className={btnClass}
                 disabled={disabled}
                 type={type}
-                {...props}
             >
+                {icon && (
+                    <Icon
+                        icon={icon}
+                        className={styles[`icon-${iconPosition}`]}
+                    />
+                )}
                 {children}
             </button>
         </Fragment>

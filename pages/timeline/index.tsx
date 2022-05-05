@@ -1,16 +1,20 @@
+import { FunctionComponent } from "react"
 import AppLayout from "components/globals/AppLayout"
 import Button, { Link } from "atoms/Buttons"
 import { Title } from "atoms/Typography"
+import { ITimelineProps } from "interfaces/general"
 
-export default function Timeline({ userName }) {
+const Timeline: FunctionComponent<ITimelineProps> = ({ userName }) => {
     return (
         <AppLayout>
-            <Title size="large">This is the Timeline of {userName}</Title>
+            <Title>This is the Timeline of {userName}</Title>
             <Button style="primary" size="sm">
                 Go Home
             </Button>
-            <Button style="secondary">Go Home</Button>
-            <Button style="success" size="lg" disabled>
+            <Button style="secondary" icon="home" iconPosition="right">
+                Go Home
+            </Button>
+            <Button style="success" size="lg" disabled icon="pencil">
                 Go Home
             </Button>
             <Link href="/">Go Home</Link>
@@ -30,8 +34,14 @@ export default function Timeline({ userName }) {
     )
 }
 
-Timeline.getInitialProps = () => {
-    return fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + "hello").then((res) =>
-        res.json()
-    )
+export async function getServerSideProps() {
+    const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + "hello")
+    const data = await res.json()
+    return {
+        props: {
+            ...data,
+        },
+    }
 }
+
+export default Timeline
