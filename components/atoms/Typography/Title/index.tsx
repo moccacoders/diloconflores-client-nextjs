@@ -5,7 +5,6 @@ import styles from "styles/atoms/typography/default.module.scss"
 const Title: FunctionComponent<ITitleProps> = ({
     type = "h2",
     color,
-    fontWeigth,
     children,
 }) => {
     const Container = ({ children }) => {

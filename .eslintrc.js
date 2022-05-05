@@ -10,10 +10,17 @@ module.exports = {
         es2021: true,
         node: true,
     },
-    extends: ["plugin:react/recommended", "standard", "prettier"],
+    extends: [
+        "plugin:@typescript-eslint/eslint-recommended",
+        "plugin:@next/next/recommended",
+        "plugin:react/recommended",
+        "standard",
+        "prettier",
+    ],
     parserOptions: {
         ecmaFeatures: {
             jsx: true,
+            tsx: true,
         },
         ecmaVersion: "latest",
         sourceType: "module",
@@ -23,4 +30,23 @@ module.exports = {
         "react/prop-types": RULES.OFF,
         "react/react-in-jsx-scope": RULES.OFF,
     },
+    settings: {
+        react: {
+            version: "detect",
+        },
+    },
+    overrides: [
+        {
+            parser: "@typescript-eslint/parser",
+            extends: [
+                "plugin:@typescript-eslint/recommended",
+                "plugin:import/typescript",
+            ],
+            plugins: ["@typescript-eslint"],
+
+            files: ["*.ts", "*.tsx"],
+
+            rules: {},
+        },
+    ],
 }

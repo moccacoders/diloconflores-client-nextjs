@@ -1,10 +1,8 @@
-import IcoMoon from 'react-icomoon';
-const iconSet = require('public/icons.json');
+import IcoMoon from "react-icomoon"
+import iconSet from "public/icons.json"
 
 const Icon = (props) => {
-	return (
-		<IcoMoon iconSet={iconSet} {...props} />
-	);
+    return <IcoMoon iconSet={iconSet} {...props} />
 }
 
-export default Icon;
+export default Icon
