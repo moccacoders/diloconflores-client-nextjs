@@ -2,11 +2,7 @@ import { FunctionComponent } from "react"
 import { ITitleProps } from "interfaces/typography"
 import styles from "styles/atoms/typography/default.module.scss"
 
-const Title: FunctionComponent<ITitleProps> = ({
-    type = "h2",
-    color,
-    children,
-}) => {
+const Title: FunctionComponent<ITitleProps> = ({ type = "h2", children }) => {
     const Container = ({ children }) => {
         switch (type) {
             case "h1":
