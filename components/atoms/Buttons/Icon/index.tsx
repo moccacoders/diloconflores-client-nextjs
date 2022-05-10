@@ -1,7 +1,7 @@
 import { Fragment, FunctionComponent } from "react"
 // import "styles/atoms/buttons/default.module.scss"
 import Icon from "atoms/Icon"
-import { IButtonDefault, IButtonIcon } from "interfaces/buttons"
+import { IButtonIcon } from "interfaces/buttons"
 import { Tooltip } from "@nextui-org/react"
 import Badge from "atoms/Badges"
 

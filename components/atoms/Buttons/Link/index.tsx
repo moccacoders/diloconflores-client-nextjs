@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import Link, { LinkProps } from "next/link"
+import Link from "next/link"
 // import "styles/atoms/buttons/default.module.scss"
 import { IButtonLink } from "interfaces/buttons"
 
