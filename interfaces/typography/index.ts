@@ -6,3 +6,33 @@ export interface ITitleProps {
 	fontWeigth?: any
 	children: string | string[] | ReactElement | ReactElement[]
 }
+
+export interface IBodyProps {
+	children: string | string[] | ReactElement | ReactElement[]
+	size?: "sm" | "lg" | "md" | "xl" | string
+	width?: number | string
+	color?: string
+	textAlign?: string
+	fontWeight?: number | string
+	parseHTML?: boolean
+}
+
+export interface ILabelProps {
+	children: string | string[] | ReactElement | ReactElement[]
+	size?: "sm" | "lg" | "md" | "xl" | string
+	width?: number | string
+	color?: string
+	textAlign?: string
+	fontWeight?: number | string
+	htmlFor?: string
+}
+
+export interface ITruncateProps {
+	children: string | string[] | ReactElement | ReactElement[]
+	size?: "sm" | "lg" | "md" | "xl" | string
+	width?: number | string
+	color?: string
+	textAlign?: string
+	fontWeight?: number | string
+	lines?: number
+}
