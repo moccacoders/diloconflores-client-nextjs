@@ -1,5 +1,16 @@
 @use "sass:list";
 
+@mixin badge-style($color, $style, $invert: false) {
+    $text: $light;
+    @if (type-of($color) == "list") {
+        $color: list.nth($color, 1);
+        $text: list.nth($color, 2);
+    }
+
+    color: if($invert == true, $color, $text);
+    background-color: if($invert == true, $text, $color);
+}
+
 @mixin btn-outline-style($color) {
     color: $color;
     @if (type-of($color) == "list") {
@@ -102,6 +113,36 @@
         &:before {
             display: none;
         }
+
+        &:hover {
+            color: lighten(list.nth($color, 1), 20%);
+        }
+    }
+}
+
+@mixin btn-transparent-style($color, $style) {
+    $text: $light;
+    @if (type-of($color) == "list") {
+        $color: list.nth($color, 1);
+        $text: list.nth($color, 2);
+    }
+
+    color: inherit;
+    background-color: transparent;
+    transition: color 0.4s ease-in-out;
+    position: relative;
+
+    &:hover {
+        color: list.nth($color, 1);
+    }
+
+    &:before {
+        display: none;
+    }
+
+    &[disabled] {
+        cursor: not-allowed;
+        color: lighten(list.nth($color, 1), 20%);
 
         &:hover {
             color: lighten(list.nth($color, 1), 20%);

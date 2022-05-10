@@ -125,6 +125,7 @@ $font-family-base-extrabold: "Montserrat-ExtraBold", sans-serif !default;
 
 $font-size-base: 0.875rem !default;
 $font-size-lg: ($font-size-base + 0.125) !default;
+$font-size-xl: ($font-size-base + 0.25) !default;
 $font-size-sm: ($font-size-base - 0.25) !default;
 
 $font-weight-normal: 400 !default;
@@ -158,6 +159,10 @@ $btn-sizes: (
         ),
         font-size: $font-size-sm,
     ),
+    md: (
+        padding: $btn-padding-y $btn-padding-x - 0.75,
+        font-size: $font-size-sm,
+    ),
     lg: (
         padding: (
             $btn-padding-y + 0.25,
@@ -166,5 +171,96 @@ $btn-sizes: (
             $btn-padding-x + 0.75,
         ),
         font-size: $font-size-lg,
+    ),
+);
+
+$btn-icon-sizes: (
+    sm: (
+        padding: (
+            $btn-padding-y - 0.25,
+        )
+        (
+            $btn-padding-x - 1.25,
+        )
+        !important,
+        font-size: $font-size-sm,
+    ),
+    lg: (
+        padding: (
+            $btn-padding-y + 0.25,
+        )
+        (
+            $btn-padding-x - 0.75,
+        )
+        !important,
+        font-size: $font-size-lg,
+    ),
+);
+
+$body-sizes: (
+    sm: (
+        padding: (
+            $btn-padding-y - 0.25,
+        )
+        (
+            $btn-padding-x - 0.75,
+        ),
+        font-size: $font-size-sm !important,
+    ),
+    md: (
+        padding: $btn-padding-y $btn-padding-x,
+        font-size: $font-size-base !important,
+    ),
+    lg: (
+        padding: (
+            $btn-padding-y + 0.25,
+        )
+        (
+            $btn-padding-x + 0.75,
+        ),
+        font-size: $font-size-lg !important,
+    ),
+    xl: (
+        padding: (
+            $btn-padding-y + 0.5,
+        )
+        (
+            $btn-padding-x + 1.5,
+        ),
+        font-size: $font-size-xl !important,
+    ),
+);
+
+$label-sizes: (
+    sm: (
+        padding: $btn-padding-y - 0.25 $btn-padding-x,
+        font-size: $font-size-sm !important,
+    ),
+    md: (
+        padding: $btn-padding-y $btn-padding-x,
+        font-size: $font-size-base !important,
+    ),
+    lg: (
+        padding: $btn-padding-y - 0.25 $btn-padding-x,
+        font-size: $font-size-lg !important,
+    ),
+    xl: (
+        padding: $btn-padding-y - 0.25 $btn-padding-x,
+        font-size: $font-size-xl !important,
+    ),
+);
+
+$truncate-sizes: (
+    sm: (
+        font-size: $font-size-sm !important,
+    ),
+    md: (
+        font-size: $font-size-base !important,
+    ),
+    lg: (
+        font-size: $font-size-lg !important,
+    ),
+    xl: (
+        font-size: $font-size-xl !important,
     ),
 );
