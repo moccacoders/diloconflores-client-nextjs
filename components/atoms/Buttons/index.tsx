@@ -1,5 +1,6 @@
-import Button from "components/atoms/Buttons/Default"
-import Link from "components/atoms/Buttons/Link"
+import Button from "atoms/Buttons/Default"
+import Link from "atoms/Buttons/Link"
+import ButtonIcon from "atoms/Buttons/Icon"
 
 export default Button
-export { Link, Button }
+export { Link, Button, ButtonIcon }

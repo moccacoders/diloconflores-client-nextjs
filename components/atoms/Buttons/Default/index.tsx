@@ -1,7 +1,8 @@
 import { Fragment, FunctionComponent } from "react"
-import styles from "styles/atoms/buttons/default.module.scss"
-import Icon from "atoms/icon"
+import Icon from "atoms/Icon"
+import Badge from "atoms/Badges"
 import { IButtonDefault } from "interfaces/buttons"
+// import "styles/atoms/buttons/default.module.scss"
 
 const Button: FunctionComponent<IButtonDefault> = ({
     style,
@@ -15,6 +16,8 @@ const Button: FunctionComponent<IButtonDefault> = ({
     outline,
     icon = null,
     iconPosition = "left",
+    badge,
+    badgeType,
 }) => {
     const types = [
         "primary",
@@ -28,17 +31,16 @@ const Button: FunctionComponent<IButtonDefault> = ({
         "link",
     ]
     const sizes = ["sm", "lg"]
-    let btnClass = className ?? ""
+    let btnClass: string | Array<string> = className ?? ""
 
     if (!types.includes(style)) style = types[0]
     btnClass = btnClass.split(" ")
-    if (size && sizes.includes(size)) btnClass.unshift(styles[`btn-${size}`])
-    if (!btnClass.includes(`btn-${style}`))
-        btnClass.unshift(styles[`btn-${style}`])
-    if (!btnClass.includes("btn")) btnClass.unshift(styles.button)
+    if (size && sizes.includes(size)) btnClass.unshift(`btn-${size}`)
+    if (!btnClass.includes(`btn-${style}`)) btnClass.unshift(`btn-${style}`)
+    if (!btnClass.includes("btn")) btnClass.unshift("button")
 
-    if (swipeToTop) btnClass.push(styles["swipe-to-top"])
-    if (outline) btnClass.push(styles[`btn-outline-${style}`])
+    if (swipeToTop) btnClass.push("swipe-to-top")
+    if (outline) btnClass.push(`btn-outline-${style}`)
 
     btnClass = btnClass.filter((a) => !!a)
     btnClass = btnClass.join(" ")
@@ -51,11 +53,9 @@ const Button: FunctionComponent<IButtonDefault> = ({
                 disabled={disabled}
                 type={type}
             >
+                {badge && <Badge type={badgeType || style}>{badge}</Badge>}
                 {icon && (
-                    <Icon
-                        icon={icon}
-                        className={styles[`icon-${iconPosition}`]}
-                    />
+                    <Icon icon={icon} className={`icon-${iconPosition}`} />
                 )}
                 {children}
             </button>

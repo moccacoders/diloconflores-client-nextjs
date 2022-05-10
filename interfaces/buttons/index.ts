@@ -23,6 +23,19 @@ export interface IButtonDefault {
 		| string
 	swipeToTop?: boolean
 	type?: "button" | "submit" | "reset"
+	title?: string
+	badge?: string
+	badgeType?:
+		| "primary"
+		| "secondary"
+		| "success"
+		| "danger"
+		| "warning"
+		| "info"
+		| "light"
+		| "dark"
+		| "link"
+		| string
 }
 
 export interface IButtonLink extends IButtonDefault, LinkProps {
@@ -30,4 +43,53 @@ export interface IButtonLink extends IButtonDefault, LinkProps {
 	button?: boolean
 	href: any
 	passHref?: boolean
+}
+
+export interface IButtonIcon {
+	className?: string
+	disabled?: string | boolean
+	icon?: string
+	onClick?: (e?: any) => void
+	outline?: boolean
+	size?: "sm" | "lg" | "md"
+	style?:
+		| "primary"
+		| "secondary"
+		| "success"
+		| "danger"
+		| "warning"
+		| "info"
+		| "light"
+		| "dark"
+		| "link"
+		| string
+	swipeToTop?: boolean
+	type?: "button" | "submit" | "reset"
+	transparent?: boolean
+	title?: string
+	tooltipPlacement?:
+		| "topStart"
+		| "top"
+		| "topEnd"
+		| "rightStart"
+		| "right"
+		| "rightEnd"
+		| "bottomStart"
+		| "bottom"
+		| "bottomEnd"
+		| "leftStart"
+		| "left"
+		| "leftsEnd"
+	badge?: string
+	badgeType?:
+		| "primary"
+		| "secondary"
+		| "success"
+		| "danger"
+		| "warning"
+		| "info"
+		| "light"
+		| "dark"
+		| "link"
+		| string
 }

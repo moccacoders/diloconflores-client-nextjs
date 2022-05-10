@@ -1,6 +1,6 @@
 import { FunctionComponent } from "react"
 import Link, { LinkProps } from "next/link"
-import styles from "styles/atoms/buttons/default.module.scss"
+// import "styles/atoms/buttons/default.module.scss"
 import { IButtonLink } from "interfaces/buttons"
 
 const BtnLink: FunctionComponent<IButtonLink> = ({
@@ -27,21 +27,20 @@ const BtnLink: FunctionComponent<IButtonLink> = ({
         "link",
     ]
     const sizes = ["sm", "lg"]
-    let btnClass: any = className ?? ""
+    let btnClass: string | Array<string> = className ?? ""
 
     if (!button) swipeToTop = false
     if (!types.includes(style)) style = types[8]
     btnClass = btnClass.split(" ")
     if (size && sizes.includes(size))
-        btnClass.unshift(styles[`${button ? "btn" : "link"}-${size}`])
+        btnClass.unshift(`${button ? "btn" : "link"}-${size}`)
     if (!btnClass.includes(`${button ? "btn" : "link"}-${style}`))
-        btnClass.unshift(styles[`${button ? "btn" : "link"}-${style}`])
+        btnClass.unshift(`${button ? "btn" : "link"}-${style}`)
     if (!btnClass.includes(button ? "btn" : "link"))
-        btnClass.unshift(styles[button ? "button" : "link"])
+        btnClass.unshift(button ? "button" : "link")
 
-    if (swipeToTop) btnClass.push(styles["swipe-to-top"])
-    if (outline)
-        btnClass.push(styles[`${button ? "btn" : "link"}-outline-${style}`])
+    if (swipeToTop) btnClass.push("swipe-to-top")
+    if (outline) btnClass.push(`${button ? "btn" : "link"}-outline-${style}`)
 
     if (disabled) props.href = null
     if (/^https?/.test(props.href)) props.passHref = true

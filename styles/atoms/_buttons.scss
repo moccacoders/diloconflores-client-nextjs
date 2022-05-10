@@ -22,6 +22,7 @@
     border: 0 solid transparent;
     align-items: center;
     justify-content: center;
+    position: relative;
 
     & > svg {
         width: 1em;
@@ -32,12 +33,17 @@
     }
 }
 
+.btn-icon {
+    @extend .button;
+    padding: ($btn-padding-y) ($btn-padding-x - 1) !important;
+}
+
 .icon-left {
-    margin-right: 0.3em;
+    margin-right: 0.6em;
 }
 
 .icon-right {
-    margin-left: 0.3em;
+    margin-left: 0.6em;
     order: 2;
 }
 
@@ -112,6 +118,20 @@
 
     .btn-#{$style} {
         @include btn-style($color, $style);
+
+        & > .badge-#{$style} {
+            @include badge-style($color, $style, true);
+        }
+    }
+
+    .btn-transparent-#{$style} {
+        @include btn-transparent-style($color, $style);
+        background-color: transparent !important;
+        & > .badge {
+            @include badge-style($color, $style);
+            right: 0.3em;
+            top: 0.3em;
+        }
     }
 
     .btn-outline-#{$style} {
@@ -121,6 +141,12 @@
 
 @each $size, $style in $btn-sizes {
     .btn-#{$size} {
+        @include btn-sizes($style);
+    }
+}
+
+@each $size, $style in $btn-icon-sizes {
+    .btn-icon-#{$size} {
         @include btn-sizes($style);
     }
 }
