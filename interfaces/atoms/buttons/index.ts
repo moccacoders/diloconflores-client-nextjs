@@ -2,7 +2,14 @@ import { ReactElement } from "react"
 import { LinkProps } from "next/link"
 
 export interface IButtonDefault {
-	children: string | ReactElement
+	children:
+		| string
+		| string[]
+		| ReactElement
+		| ReactElement[]
+		| number
+		| undefined
+		| any
 	className?: string
 	disabled?: string | boolean
 	icon?: string
@@ -25,6 +32,7 @@ export interface IButtonDefault {
 	type?: "button" | "submit" | "reset"
 	title?: string
 	badge?: string
+	value?: string | ReadonlyArray<string> | number | undefined
 	badgeType?:
 		| "primary"
 		| "secondary"

@@ -1,0 +1,44 @@
+#header-bar {
+    display: flex;
+    background-color: white;
+    width: 100%;
+    justify-content: center;
+
+    .header-bar-content {
+        display: flex;
+        max-width: 1200px;
+        width: 100%;
+        justify-content: space-between;
+
+        .header-bar-items {
+            display: block;
+            padding: 1.5em 1em;
+
+            &.header-bar--logo {
+                .image-container {
+                    span {
+                        position: relative !important;
+                    }
+                    img {
+                        position: relative !important;
+                        width: 100% !important;
+                        max-width: 200px !important;
+                        min-width: 200px !important;
+                        height: auto !important;
+                        max-height: fit-content !important;
+                        min-height: fit-content !important;
+                    }
+                }
+            }
+
+            &.header-bar--search-box {
+                width: 50%;
+            }
+
+            &.header-bar--actions {
+                display: flex;
+                align-items: flex-end;
+            }
+        }
+    }
+}

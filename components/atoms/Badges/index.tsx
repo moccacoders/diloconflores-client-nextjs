@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react"
-import { IBadgeDefault } from "interfaces/badges"
-// import "styles/atoms/badges/default.module.scss"
+import { IBadgeDefault } from "interfaces/atoms/badges"
 
 const Badge: FunctionComponent<IBadgeDefault> = ({
     children,

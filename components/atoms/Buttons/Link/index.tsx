@@ -1,7 +1,6 @@
 import { FunctionComponent } from "react"
 import Link from "next/link"
-// import "styles/atoms/buttons/default.module.scss"
-import { IButtonLink } from "interfaces/buttons"
+import { IButtonLink } from "interfaces/atoms/buttons"
 
 const BtnLink: FunctionComponent<IButtonLink> = ({
     style,
@@ -37,7 +36,7 @@ const BtnLink: FunctionComponent<IButtonLink> = ({
     if (!btnClass.includes(`${button ? "btn" : "link"}-${style}`))
         btnClass.unshift(`${button ? "btn" : "link"}-${style}`)
     if (!btnClass.includes(button ? "btn" : "link"))
-        btnClass.unshift(button ? "button" : "link")
+        btnClass.unshift(button ? "btn" : "link")
 
     if (swipeToTop) btnClass.push("swipe-to-top")
     if (outline) btnClass.push(`${button ? "btn" : "link"}-outline-${style}`)

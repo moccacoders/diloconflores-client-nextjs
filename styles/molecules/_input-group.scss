@@ -1,0 +1,50 @@
+.input-group {
+    position: relative;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: stretch;
+    width: 100%;
+    border: 1px solid $gray-300;
+    // padding: ($btn-padding-y - 0.3) 0;
+
+    .input-group--addon {
+        display: flex;
+        align-items: center;
+        padding: $btn-padding-y + 0.3 $btn-padding-x - 0.75;
+        font-size: $font-size-base;
+        color: $black;
+        text-align: center;
+        white-space: nowrap;
+        background-color: $white;
+        border-color: $gray-300;
+        border-style: solid;
+        border-width: 0px;
+
+        &:first-child {
+            border-right-width: 1px;
+            padding-left: $btn-padding-y + 0.25;
+        }
+
+        &:last-child:not(.input-group--button-addon) {
+            border-left-width: 1px;
+            padding-right: $btn-padding-y + 0.25;
+        }
+
+        &.input-group--button-addon {
+            padding: 0;
+
+            .btn {
+                padding: $btn-padding-y $btn-padding-x - 0.4 !important;
+                height: calc(100% + 1px);
+            }
+        }
+    }
+
+    .form-control {
+        position: relative;
+        flex: 1 1 auto;
+        width: 1%;
+        min-width: 0;
+        border: none;
+    }
+}

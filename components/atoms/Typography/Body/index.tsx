@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { IBodyProps } from "interfaces/typography"
+import { IBodyProps } from "interfaces/atoms/typography"
 import { sizes } from "catalogs"
 import HTMLPaser from "react-html-parser"
 

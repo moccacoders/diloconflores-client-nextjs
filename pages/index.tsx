@@ -1,17 +1,22 @@
-import Link from "next/link"
-import AppLayout from "components/globals/AppLayout"
+import { FunctionComponent } from "react"
+import Header from "organisms/Header"
 
-export default function Home() {
+const Timeline: FunctionComponent = () => {
     return (
-        <AppLayout title="Welcome here">
-            <h1>
-                Welcome to <a href="https://nextjs.org">Devter!</a>
-            </h1>
-            <nav>
-                <Link href="/timeline">
-                    <a>timeline</a>
-                </Link>
-            </nav>
-        </AppLayout>
+        <>
+            <Header />
+        </>
     )
 }
+
+// export async function getServerSideProps() {
+//     const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + "hello")
+//     const data = await res.json()
+//     return {
+//         props: {
+//             ...data,
+//         },
+//     }
+// }
+
+export default Timeline

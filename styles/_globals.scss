@@ -1,15 +1,9 @@
-@import "styles/variables";
-@import "styles/fonts";
-@import "styles/mixins";
-@import "styles/atoms/buttons";
-@import "styles/atoms/typography";
-@import "styles/atoms/badges";
-
 html,
 body {
     padding: 0;
     margin: 0;
     font-family: "Montserrat-Regular", sans-serif;
+    background-color: #bfbfbf;
 }
 
 a {

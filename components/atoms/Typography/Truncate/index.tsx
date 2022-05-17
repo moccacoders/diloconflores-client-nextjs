@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { ITruncateProps } from "interfaces/typography"
+import { ITruncateProps } from "interfaces/atoms/typography"
 import { sizes } from "catalogs"
 
 const Truncate: FunctionComponent<ITruncateProps> = ({

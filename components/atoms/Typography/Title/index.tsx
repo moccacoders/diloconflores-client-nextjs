@@ -1,6 +1,5 @@
 import { FunctionComponent } from "react"
-import { ITitleProps } from "interfaces/typography"
-// import styles from "styles/atoms/typography/default.module.scss"
+import { ITitleProps } from "interfaces/atoms/typography"
 
 const Title: FunctionComponent<ITitleProps> = ({
     type = "h2",

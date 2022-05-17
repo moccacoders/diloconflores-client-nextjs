@@ -1,7 +1,6 @@
 import { Fragment, FunctionComponent } from "react"
-// import "styles/atoms/buttons/default.module.scss"
 import Icon from "atoms/Icon"
-import { IButtonIcon } from "interfaces/buttons"
+import { IButtonIcon } from "interfaces/atoms/buttons"
 import { Tooltip } from "@nextui-org/react"
 import Badge from "atoms/Badges"
 
@@ -39,7 +38,8 @@ const ButtonIcon: FunctionComponent<IButtonIcon> = ({
     btnClass = btnClass.split(" ")
     if (size && sizes.includes(size)) btnClass.unshift(`btn-icon-${size}`)
     if (!btnClass.includes(`btn-${style}`)) btnClass.unshift(`btn-${style}`)
-    if (!btnClass.includes("btn")) btnClass.unshift("btn-icon")
+    if (!btnClass.includes("btn-icon")) btnClass.unshift("btn-icon")
+    if (!btnClass.includes("btn")) btnClass.unshift("btn")
 
     if (swipeToTop) btnClass.push("swipe-to-top")
     if (outline) btnClass.push(`btn-outline-${style}`)

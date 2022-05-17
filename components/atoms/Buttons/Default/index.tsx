@@ -1,8 +1,7 @@
 import { Fragment, FunctionComponent } from "react"
 import Icon from "atoms/Icon"
 import Badge from "atoms/Badges"
-import { IButtonDefault } from "interfaces/buttons"
-// import "styles/atoms/buttons/default.module.scss"
+import { IButtonDefault } from "interfaces/atoms/buttons"
 
 const Button: FunctionComponent<IButtonDefault> = ({
     style,
@@ -18,6 +17,7 @@ const Button: FunctionComponent<IButtonDefault> = ({
     iconPosition = "left",
     badge,
     badgeType,
+    value,
 }) => {
     const types = [
         "primary",
@@ -37,7 +37,7 @@ const Button: FunctionComponent<IButtonDefault> = ({
     btnClass = btnClass.split(" ")
     if (size && sizes.includes(size)) btnClass.unshift(`btn-${size}`)
     if (!btnClass.includes(`btn-${style}`)) btnClass.unshift(`btn-${style}`)
-    if (!btnClass.includes("btn")) btnClass.unshift("button")
+    if (!btnClass.includes("btn")) btnClass.unshift("btn")
 
     if (swipeToTop) btnClass.push("swipe-to-top")
     if (outline) btnClass.push(`btn-outline-${style}`)
@@ -52,6 +52,7 @@ const Button: FunctionComponent<IButtonDefault> = ({
                 className={btnClass}
                 disabled={disabled}
                 type={type}
+                value={value}
             >
                 {badge && <Badge type={badgeType || style}>{badge}</Badge>}
                 {icon && (

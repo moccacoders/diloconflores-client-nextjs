@@ -1,5 +1,5 @@
 import { FunctionComponent } from "react"
-import { ILabelProps } from "interfaces/typography"
+import { ILabelProps } from "interfaces/atoms/typography"
 import { sizes } from "catalogs"
 
 const Label: FunctionComponent<ILabelProps> = ({
