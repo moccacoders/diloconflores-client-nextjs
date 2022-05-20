@@ -3,6 +3,7 @@ import Icon from "atoms/Icon"
 import { IButtonIcon } from "interfaces/atoms/buttons"
 import { Tooltip } from "@nextui-org/react"
 import Badge from "atoms/Badges"
+import { types } from "catalogs"
 
 const ButtonIcon: FunctionComponent<IButtonIcon> = ({
     style = "primary",
@@ -20,17 +21,17 @@ const ButtonIcon: FunctionComponent<IButtonIcon> = ({
     badge,
     badgeType,
 }) => {
-    const types = [
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-        "link",
-    ]
+    // const types = [
+    //     "primary",
+    //     "secondary",
+    //     "success",
+    //     "danger",
+    //     "warning",
+    //     "info",
+    //     "light",
+    //     "dark",
+    //     "link",
+    // ]
     const sizes = ["sm", "lg"]
     let btnClass: string | Array<string> = className ?? ""
 

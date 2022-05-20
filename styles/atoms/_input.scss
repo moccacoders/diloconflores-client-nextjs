@@ -26,5 +26,13 @@ input {
             border-color: $gray-500;
             outline: 0;
         }
+
+        &.is-invalid {
+            border: 1px solid $danger;
+        }
+
+        &.is-valid {
+            border: 1px solid $success;
+        }
     }
 }

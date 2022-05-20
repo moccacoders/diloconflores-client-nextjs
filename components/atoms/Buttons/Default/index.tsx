@@ -2,6 +2,7 @@ import { Fragment, FunctionComponent } from "react"
 import Icon from "atoms/Icon"
 import Badge from "atoms/Badges"
 import { IButtonDefault } from "interfaces/atoms/buttons"
+import { types } from "catalogs"
 
 const Button: FunctionComponent<IButtonDefault> = ({
     style,
@@ -19,17 +20,17 @@ const Button: FunctionComponent<IButtonDefault> = ({
     badgeType,
     value,
 }) => {
-    const types = [
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-        "link",
-    ]
+    // const types = [
+    //     "primary",
+    //     "secondary",
+    //     "success",
+    //     "danger",
+    //     "warning",
+    //     "info",
+    //     "light",
+    //     "dark",
+    //     "link",
+    // ]
     const sizes = ["sm", "lg"]
     let btnClass: string | Array<string> = className ?? ""
 

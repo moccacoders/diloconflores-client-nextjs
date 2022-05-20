@@ -20,13 +20,24 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
     const handleChange = (evt) => {
         setValue(evt.target.value)
         openDropdown()
-        onChange(evt)
+        onChange(evt.target.value, evt)
     }
 
     return (
-        <div className="dropdown">
-            <Button style={style} onClick={openDropdown}>
-                {currentValue || placeholder || items[0]}
+        <div
+            className={classnames({
+                dropdown: true,
+                opened: !!open,
+            })}
+        >
+            <Button
+                style={style}
+                onClick={openDropdown}
+                className="dropdown-toggle"
+            >
+                {currentValue ||
+                    placeholder ||
+                    (typeof items[0] === "object" ? items[0]?.text : items[0])}
             </Button>
             <ul
                 className={classnames({
@@ -36,13 +47,27 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
             >
                 {items.length > 0 &&
                     items.map((item, ind) => (
-                        <li className="dropdown-menu--item" key={ind}>
+                        <li
+                            className={classnames({
+                                "dropdown-menu--item": true,
+                                active: (item?.value || item) === currentValue,
+                            })}
+                            key={ind}
+                        >
                             <Button
-                                style="light"
+                                style={
+                                    (item?.value || item) === currentValue
+                                        ? "info"
+                                        : "white"
+                                }
                                 onClick={handleChange}
-                                value={item}
+                                value={
+                                    typeof item === "object"
+                                        ? item?.value
+                                        : item
+                                }
                             >
-                                {item}
+                                {item?.text || item}
                             </Button>
                         </li>
                     ))}

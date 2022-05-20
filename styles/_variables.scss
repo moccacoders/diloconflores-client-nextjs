@@ -103,6 +103,9 @@ $btn-styles: (
     ),
     dark: $dark,
     link: $link-color,
+    white: (
+        $white $dark,
+    ),
 );
 
 $btn-sizes: (

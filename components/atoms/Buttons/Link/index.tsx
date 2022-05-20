@@ -1,6 +1,7 @@
 import { FunctionComponent } from "react"
 import Link from "next/link"
 import { IButtonLink } from "interfaces/atoms/buttons"
+import { types } from "catalogs"
 
 const BtnLink: FunctionComponent<IButtonLink> = ({
     style,
@@ -14,17 +15,17 @@ const BtnLink: FunctionComponent<IButtonLink> = ({
     button = false,
     ...props
 }) => {
-    const types = [
-        "primary",
-        "secondary",
-        "success",
-        "danger",
-        "warning",
-        "info",
-        "light",
-        "dark",
-        "link",
-    ]
+    // const types = [
+    //     "primary",
+    //     "secondary",
+    //     "success",
+    //     "danger",
+    //     "warning",
+    //     "info",
+    //     "light",
+    //     "dark",
+    //     "link",
+    // ]
     const sizes = ["sm", "lg"]
     let btnClass: string | Array<string> = className ?? ""
 

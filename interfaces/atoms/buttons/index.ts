@@ -27,11 +27,12 @@ export interface IButtonDefault {
 		| "light"
 		| "dark"
 		| "link"
+		| "white"
 		| string
 	swipeToTop?: boolean
 	type?: "button" | "submit" | "reset"
 	title?: string
-	badge?: string
+	badge?: string | number
 	value?: string | ReadonlyArray<string> | number | undefined
 	badgeType?:
 		| "primary"
@@ -43,6 +44,7 @@ export interface IButtonDefault {
 		| "light"
 		| "dark"
 		| "link"
+		| "white"
 		| string
 }
 
@@ -70,6 +72,7 @@ export interface IButtonIcon {
 		| "light"
 		| "dark"
 		| "link"
+		| "white"
 		| string
 	swipeToTop?: boolean
 	type?: "button" | "submit" | "reset"
@@ -88,7 +91,7 @@ export interface IButtonIcon {
 		| "leftStart"
 		| "left"
 		| "leftsEnd"
-	badge?: string
+	badge?: string | number
 	badgeType?:
 		| "primary"
 		| "secondary"
@@ -99,5 +102,6 @@ export interface IButtonIcon {
 		| "light"
 		| "dark"
 		| "link"
+		| "white"
 		| string
 }

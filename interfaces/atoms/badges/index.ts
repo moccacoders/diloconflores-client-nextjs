@@ -12,5 +12,6 @@ export interface IBadgeDefault {
 		| "light"
 		| "dark"
 		| "link"
+		| "white"
 		| string
 }
