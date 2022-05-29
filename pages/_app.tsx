@@ -1,5 +1,9 @@
 import Head from "next/head"
 import Image from "next/image"
+import Header from "organisms/Header"
+import TopBar from "organisms/TopBar"
+import NavBar from "organisms/NavBar"
+import Footer from "organisms/Footer"
 
 import "styles/styles.scss"
 
@@ -14,26 +18,13 @@ const MyApp = ({ Component, pageProps }) => {
                 />
                 <link rel="icon" href="/favicon.ico" />
             </Head>
+            <TopBar />
+            <Header />
+            <NavBar />
             <main className={"app--main"}>
                 <Component {...pageProps} />
             </main>
-            <footer className={"app--footer"}>
-                <a
-                    href="https://vercel.com?utm_source=create-next-app&utm_medium=default-template&utm_campaign=create-next-app"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                >
-                    Powered by{" "}
-                    <span className={"app--logo"}>
-                        <Image
-                            src="/vercel.svg"
-                            alt="Vercel Logo"
-                            width={72}
-                            height={16}
-                        />
-                    </span>
-                </a>
-            </footer>
+            <Footer />
         </div>
     )
 }

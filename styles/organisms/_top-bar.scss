@@ -1,0 +1,51 @@
+#top-bar {
+    display: flex;
+    background-color: $gray-800;
+    width: 100%;
+    justify-content: center;
+    align-items: stretch;
+    justify-content: center;
+
+    .top-bar--content {
+        display: flex;
+        flex-direction: row;
+        max-width: $max-width-screen;
+        width: 100%;
+
+        .top-bar--item {
+            display: flex;
+            padding: 5px 10px;
+            width: 100%;
+
+            .dropdown {
+                &:nth-child(2) {
+                    margin-left: 5px;
+                }
+
+                .dropdown-toggle {
+                    padding: 5px 10px;
+                    font-size: 0.8em;
+                    background-color: transparent;
+                }
+            }
+
+            &:nth-child(2) {
+                justify-content: flex-end;
+                align-items: center;
+
+                .link {
+                    &:nth-child(2) {
+                        margin-left: 10px;
+                    }
+
+                    &.signup {
+                        opacity: 0.7;
+                    }
+
+                    .dropdown-toggle {
+                    }
+                }
+            }
+        }
+    }
+}

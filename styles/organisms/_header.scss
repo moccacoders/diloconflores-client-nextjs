@@ -6,7 +6,7 @@
 
     .header-bar-content {
         display: flex;
-        max-width: 1200px;
+        max-width: $max-width-screen;
         width: 100%;
         justify-content: space-between;
 
@@ -32,12 +32,25 @@
             }
 
             &.header-bar--search-box {
-                width: 50%;
+                width: 80%;
+
+                @include media-breakpoint-down("lg") {
+                    display: none;
+                }
             }
 
             &.header-bar--actions {
+                padding-right: 0px;
                 display: flex;
                 align-items: flex-end;
+
+                .menu-toggle {
+                    display: none;
+
+                    @include media-breakpoint-down("lg") {
+                        display: block;
+                    }
+                }
             }
         }
     }

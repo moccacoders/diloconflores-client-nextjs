@@ -1,6 +1,6 @@
 import classnames from "classnames"
-import { FunctionComponent, useState } from "react"
-import { IDropdownProps } from "interfaces/molecules/dropdown"
+import { FunctionComponent, useState, useEffect, useRef } from "react"
+import { IDropdownProps, DropdownItem } from "interfaces/molecules/dropdown"
 import Button from "atoms/Buttons"
 
 const Dropdown: FunctionComponent<IDropdownProps> = ({
@@ -9,23 +9,49 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
     items = [],
     onChange,
     style = "primary",
+    preservePlaceholder = false,
+    className,
+    ...buttonProps
 }) => {
-    const [currentValue, setValue] = useState(value)
+    const ref = useRef(null)
+    const [currentValue, setValue] = useState<DropdownItem>(value)
     const [open, setOpen] = useState(false)
+
+    useEffect(() => {
+        const handleClickOutside = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                open && openDropdown()
+            }
+        }
+        document.addEventListener("click", handleClickOutside, true)
+        return () => {
+            document.removeEventListener("click", handleClickOutside, true)
+        }
+    }, [open])
+
+    useEffect(() => {
+        setValue(value)
+    }, [value])
 
     const openDropdown = () => {
         setOpen(!open)
     }
 
     const handleChange = (evt) => {
-        setValue(evt.target.value)
+        const value =
+            typeof items[0] === "object"
+                ? items.find((i) => i.value === evt.target.value)
+                : evt.target.value
+
+        setValue(value)
         openDropdown()
-        onChange(evt.target.value, evt)
+        onChange(value, evt)
     }
 
     return (
         <div
-            className={classnames({
+            ref={ref}
+            className={classnames(className, {
                 dropdown: true,
                 opened: !!open,
             })}
@@ -34,43 +60,51 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
                 style={style}
                 onClick={openDropdown}
                 className="dropdown-toggle"
+                {...buttonProps}
             >
-                {currentValue ||
+                {(!preservePlaceholder &&
+                    (currentValue?.text || currentValue)) ||
                     placeholder ||
                     (typeof items[0] === "object" ? items[0]?.text : items[0])}
             </Button>
             <ul
                 className={classnames({
                     "dropdown-menu": true,
-                    active: !!open,
+                    open: !!open,
                 })}
             >
                 {items.length > 0 &&
-                    items.map((item, ind) => (
-                        <li
-                            className={classnames({
-                                "dropdown-menu--item": true,
-                                active: (item?.value || item) === currentValue,
-                            })}
-                            key={ind}
-                        >
-                            <Button
-                                style={
-                                    (item?.value || item) === currentValue
-                                        ? "info"
-                                        : "white"
-                                }
-                                onClick={handleChange}
-                                value={
-                                    typeof item === "object"
-                                        ? item?.value
-                                        : item
-                                }
+                    items.map((item, ind) => {
+                        return (
+                            <li
+                                className={classnames({
+                                    "dropdown-menu--item": true,
+                                    active:
+                                        (item?.value || item) ===
+                                        (currentValue?.value || currentValue),
+                                })}
+                                key={ind}
                             >
-                                {item?.text || item}
-                            </Button>
-                        </li>
-                    ))}
+                                <Button
+                                    swipeToTop={false}
+                                    style={
+                                        (item?.value || item) ===
+                                        (currentValue?.value || currentValue)
+                                            ? "info"
+                                            : "white"
+                                    }
+                                    onClick={handleChange}
+                                    value={
+                                        typeof item === "object"
+                                            ? item?.value
+                                            : item
+                                    }
+                                >
+                                    {item?.text || item}
+                                </Button>
+                            </li>
+                        )
+                    })}
             </ul>
         </div>
     )

@@ -15,17 +15,6 @@ const BtnLink: FunctionComponent<IButtonLink> = ({
     button = false,
     ...props
 }) => {
-    // const types = [
-    //     "primary",
-    //     "secondary",
-    //     "success",
-    //     "danger",
-    //     "warning",
-    //     "info",
-    //     "light",
-    //     "dark",
-    //     "link",
-    // ]
     const sizes = ["sm", "lg"]
     let btnClass: string | Array<string> = className ?? ""
 

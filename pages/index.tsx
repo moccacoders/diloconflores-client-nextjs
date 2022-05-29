@@ -1,22 +1,22 @@
-import { FunctionComponent } from "react"
-import Header from "organisms/Header"
+import React, { useState } from "react"
 
-const Timeline: FunctionComponent = () => {
+const Timeline = () => {
+    const [count, setCount] = useState(0)
+    const increase = () => {
+        setCount(count + 1)
+    }
+    const decrease = () => {
+        setCount(count <= 0 ? 0 : count - 1)
+    }
     return (
         <>
-            <Header />
+            <p>
+                Esta es una cuenta de : <span>{count}</span>
+            </p>
+            <button onClick={decrease}>Decrease</button>
+            <button onClick={increase}>Increase</button>
         </>
     )
 }
-
-// export async function getServerSideProps() {
-//     const res = await fetch(process.env.NEXT_PUBLIC_API_ENDPOINT + "hello")
-//     const data = await res.json()
-//     return {
-//         props: {
-//             ...data,
-//         },
-//     }
-// }
 
 export default Timeline

@@ -38,11 +38,11 @@
         background-clip: padding-box;
         border: 1px solid rgba(0, 0, 0, 0.15);
 
-        &.active {
+        &.open {
             display: block;
             inset: 0px auto auto 0px;
             margin: 0px;
-            transform: translate3d(0px, 50px, 0px);
+            top: 100%;
         }
 
         .dropdown-menu--item {
@@ -60,7 +60,7 @@
 
             &.active {
                 .btn {
-                    background-color: $info;
+                    background-color: lighten($primary, 20%);
                 }
             }
 

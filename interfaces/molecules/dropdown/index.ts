@@ -10,6 +10,7 @@ export interface IDropdownProps extends IButtonDefault {
 	children?: null | undefined
 	items: Array<string> | Array<DropdownItem>
 	placeholder?: string | null
-	value?: string | ReadonlyArray<string> | number | undefined
+	value?: <DropdownItem>,
 	onChange: (element: any, event: ChangeEventHandler<any> | undefined) => void
+	preservePlaceholder?: boolean
 }
