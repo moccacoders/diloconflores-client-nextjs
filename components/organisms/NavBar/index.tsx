@@ -15,7 +15,7 @@ const NavBar: FunctionComponent = () => {
     useEffect(() => {
         if (localStorage.getItem("store-menu"))
             return setItems(JSON.parse(localStorage.getItem("store-menu")))
-        fetch(`${process.env.NEXT_PUBLIC_APP_ENDPOINT}menus/main-menu/items`)
+        fetch(`${process.env.NEXT_PUBLIC_API_ENDPOINT}menus/main-menu/items`)
             .then((res) => res.json())
             .then((res) => {
                 if (res.total > 0) {
