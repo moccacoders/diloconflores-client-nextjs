@@ -46,7 +46,6 @@ const Floating: FunctionComponent = () => {
         document.body.classList.toggle("mobile-cart-list-opened")
     }
 
-    console.log(ref.current)
     return (
         <div className="cart-container cart-floating">
             <ButtonIcon

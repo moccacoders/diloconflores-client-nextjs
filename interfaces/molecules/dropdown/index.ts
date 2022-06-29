@@ -6,11 +6,12 @@ export interface DropdownItem {
 	text: string | number
 }
 
-export interface IDropdownProps extends IButtonDefault {
+export interface IDropdownProps
+	extends Omit<IButtonDefault, "value" | "children"> {
 	children?: null | undefined
-	items: Array<string> | Array<DropdownItem>
+	items: Array<DropdownItem>
 	placeholder?: string | null
 	onChange: (element: any, event: ChangeEventHandler<any> | undefined) => void
 	preservePlaceholder?: boolean
-	value: DropdownItem
+	value?: DropdownItem | string
 }

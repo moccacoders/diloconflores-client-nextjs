@@ -2,7 +2,7 @@ export interface NavBarItem {
 	name: string
 	text: string
 	id: string
-	href?: string
+	path?: string
 	as?: string
 	children?: NavBarItem[]
 }

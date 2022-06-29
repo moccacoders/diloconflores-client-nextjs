@@ -1,4 +1,5 @@
 import { ReactElement } from "react"
+import { StandardLonghandProperties } from "csstype"
 
 export interface ITitleProps {
 	type?: "h1" | "h2" | "h3" | "h4" | "h5" | "h6"
@@ -12,7 +13,7 @@ export interface IBodyProps {
 	size?: "sm" | "lg" | "md" | "xl" | string
 	width?: number | string
 	color?: string
-	textAlign?: string
+	textAlign?: StandardLonghandProperties["textAlign"]
 	fontWeight?: number | string
 	parseHTML?: boolean
 }
@@ -22,7 +23,7 @@ export interface ILabelProps {
 	size?: "sm" | "lg" | "md" | "xl" | string
 	width?: number | string
 	color?: string
-	textAlign?: string
+	textAlign?: StandardLonghandProperties["textAlign"]
 	fontWeight?: number | string
 	htmlFor?: string
 }
@@ -32,7 +33,7 @@ export interface ITruncateProps {
 	size?: "sm" | "lg" | "md" | "xl" | string
 	width?: number | string
 	color?: string
-	textAlign?: string
+	textAlign?: StandardLonghandProperties["textAlign"]
 	fontWeight?: number | string
 	lines?: number
 }

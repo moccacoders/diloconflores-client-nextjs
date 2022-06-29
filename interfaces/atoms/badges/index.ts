@@ -1,7 +1,7 @@
 import { ReactElement } from "react"
 
 export interface IBadgeDefault {
-	children: string | ReactElement
+	children: string | number | ReactElement
 	type?:
 		| "primary"
 		| "secondary"

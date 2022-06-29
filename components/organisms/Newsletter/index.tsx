@@ -32,7 +32,7 @@ const Newsletter: FunctionComponent = () => {
                         }
                     >
                         <AddonButton>
-                            <Button type="primary">Subscribe</Button>
+                            <Button style="primary">Subscribe</Button>
                         </AddonButton>
                     </InputGroup>
                 </div>

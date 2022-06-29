@@ -1,5 +1,5 @@
 import classnames from "classnames"
-import { FunctionComponent, forwardRef } from "react"
+import { FunctionComponent, forwardRef, Fragment } from "react"
 import { ICartListProps } from "interfaces/molecules/cart"
 import CartItem from "molecules/Cart/Item"
 
@@ -8,7 +8,6 @@ const CartList: FunctionComponent<ICartListProps> = forwardRef((props, ref) => {
     return (
         <>
             <div
-                ref={ref}
                 id="cart-list"
                 className={classnames({
                     "cart-list": true,

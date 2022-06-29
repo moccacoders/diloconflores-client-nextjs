@@ -14,7 +14,7 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
     ...buttonProps
 }) => {
     const ref = useRef(null)
-    const [currentValue, setValue] = useState<DropdownItem>(value)
+    const [currentValue, setValue] = useState<DropdownItem | string>(value)
     const [open, setOpen] = useState(false)
 
     useEffect(() => {
@@ -38,10 +38,7 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
     }
 
     const handleChange = (evt) => {
-        const value =
-            typeof items[0] === "object"
-                ? items.find((i) => i.value === evt.target.value)
-                : evt.target.value
+        const value = items.find((i) => i.value === evt.target.value)
 
         setValue(value)
         openDropdown()
@@ -63,7 +60,9 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
                 {...buttonProps}
             >
                 {(!preservePlaceholder &&
-                    (currentValue?.text || currentValue)) ||
+                    (typeof currentValue === "object"
+                        ? currentValue?.text
+                        : currentValue)) ||
                     placeholder ||
                     (typeof items[0] === "object" ? items[0]?.text : items[0])}
             </Button>
@@ -81,7 +80,9 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
                                     "dropdown-menu--item": true,
                                     active:
                                         (item?.value || item) ===
-                                        (currentValue?.value || currentValue),
+                                        (typeof currentValue === "object"
+                                            ? currentValue?.text
+                                            : currentValue),
                                 })}
                                 key={ind}
                             >
@@ -89,7 +90,9 @@ const Dropdown: FunctionComponent<IDropdownProps> = ({
                                     swipeToTop={false}
                                     style={
                                         (item?.value || item) ===
-                                        (currentValue?.value || currentValue)
+                                        (typeof currentValue === "object"
+                                            ? currentValue?.text
+                                            : currentValue)
                                             ? "info"
                                             : "white"
                                     }

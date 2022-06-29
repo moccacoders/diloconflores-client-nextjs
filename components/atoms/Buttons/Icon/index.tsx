@@ -21,17 +21,6 @@ const ButtonIcon: FunctionComponent<IButtonIcon> = ({
     badge,
     badgeType,
 }) => {
-    // const types = [
-    //     "primary",
-    //     "secondary",
-    //     "success",
-    //     "danger",
-    //     "warning",
-    //     "info",
-    //     "light",
-    //     "dark",
-    //     "link",
-    // ]
     const sizes = ["sm", "lg"]
     let btnClass: string | Array<string> = className ?? ""
 
