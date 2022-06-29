@@ -91,7 +91,7 @@ export interface IButtonIcon {
 		| "bottomEnd"
 		| "leftStart"
 		| "left"
-		| "leftsEnd"
+		| "leftEnd"
 	badge?: string | number
 	badgeType?:
 		| "primary"
