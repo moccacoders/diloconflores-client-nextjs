@@ -54,52 +54,60 @@ const NavBar: FunctionComponent = () => {
         document.body.classList.toggle("mobile-menu-opened")
     }
 
-    // useEffect(() => {
-    //     const { collection } = router.query
-    // 	if(items.length < 0){
-    // 		const parent = items.find(
-    // 			(item) =>
-    // 				item.href === router.pathname ||
-    // 				(item.children &&
-    // 					item.children.find(
-    // 						(child) =>
-    // 							child.href === router.pathname &&
-    // 							router.pathname !== router.asPath &&
-    // 							child.as === router.asPath
-    // 					))
-    // 		)
+    useEffect(() => {
+        const { collection } = router.query
+        if (items.length < 0) {
+            const parent = items.find(
+                (item) =>
+                    item.path === router.pathname ||
+                    (item.children &&
+                        item.children.find(
+                            (child) =>
+                                child.path === router.pathname &&
+                                router.pathname !== router.asPath &&
+                                child.as === router.asPath
+                        ))
+            )
 
-    // 		const child =
-    // 			parent.children &&
-    // 			parent.children.find(
-    // 				(child) =>
-    // 					child.href === router.pathname && child.as === router.asPath
-    // 			)
+            const child =
+                parent.children &&
+                parent.children.find(
+                    (child) =>
+                        child.path === router.pathname &&
+                        child.as === router.asPath
+                )
 
-    // 		if (parent) setParentSelected(parent)
-    // 		if (child)
-    // 			setSelected({
-    // 				value: `${child.name}-${parent.name}`,
-    // 				text: child.text,
-    // 			})
-    // 		else setSelected(null)
-    // 	}
-    // }, [router.pathname, router.asPath])
+            if (parent) setParentSelected(parent)
+            if (child)
+                setSelected({
+                    value: `${child.name}-${parent.name}`,
+                    text: child.text,
+                })
+            else setSelected(null)
+        }
+    }, [router.pathname, router.asPath])
 
     const handleChangeDropdown = ({ value }) => {
         const [childName, parentName] = value.split("-")
-        const parent = items.find((e) => e.name === parentName)
-        const child = parent.items.find((e) => e.name === childName)
+        const parent = items.find((e) => e.id.toString() === parentName)
+        const child = parent.children.find((e) => e.id.toString() === childName)
 
-        router.push(child.href, child.as)
+        router.push(child.path, child.as)
     }
 
-    const menuItem = ({ name, text, id, href, as, children = [] }) => {
+    const menuItem = ({ name, text, id, path, as, children = [] }) => {
+        const items = children.map((item) => {
+            return {
+                value: `${item.id}-${id}`,
+                text: item.name,
+            }
+        })
+
         switch (children.length) {
             case 0:
                 return (
-                    <Link style="dark" href={href ?? ""} as={as}>
-                        {text}
+                    <Link style="dark" href={path ?? ""} as={as}>
+                        {name}
                     </Link>
                 )
             default:
@@ -112,12 +120,7 @@ const NavBar: FunctionComponent = () => {
                         onChange={handleChangeDropdown}
                         preservePlaceholder
                         value={selected}
-                        items={children.map((item) => {
-                            return {
-                                value: `${item.name}-${name}`,
-                                text: item.text,
-                            }
-                        })}
+                        items={items}
                     />
                 )
         }
@@ -129,7 +132,7 @@ const NavBar: FunctionComponent = () => {
                 <ul className="nav-bar--list">
                     {items.map(
                         (
-                            { name, text, id, href, as, children }: NavBarItem,
+                            { name, text, id, path, as, children }: NavBarItem,
                             ind
                         ) => (
                             <li
@@ -143,7 +146,7 @@ const NavBar: FunctionComponent = () => {
                                     name,
                                     text,
                                     id,
-                                    href,
+                                    path,
                                     as,
                                     children,
                                 })}
