@@ -9,6 +9,7 @@ import Input from "atoms/Input"
 const InputGroup: FunctionComponent<IInputGroupProps> = ({
     children,
     addonPosition = "left",
+    inputElement,
     ...inputProps
 }) => {
     const prepend =
@@ -26,7 +27,7 @@ const InputGroup: FunctionComponent<IInputGroupProps> = ({
     return (
         <div className="input-group">
             {prepend && <>{prepend}</>}
-            <Input {...inputProps} />
+            {inputElement ?? <Input {...inputProps} />}
             {append && <>{append}</>}
         </div>
     )

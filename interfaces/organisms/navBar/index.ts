@@ -4,5 +4,5 @@ export interface NavBarItem {
 	id: string
 	href?: string
 	as?: string
-	items?: NavBarItem[]
+	children?: NavBarItem[]
 }

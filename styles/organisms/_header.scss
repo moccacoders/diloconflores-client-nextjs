@@ -14,7 +14,15 @@
             display: block;
             padding: 1.5em 1em;
 
+            @include media-breakpoint-down("lg") {
+                padding: 1em;
+            }
+
             &.header-bar--logo {
+                display: flex;
+                align-items: center;
+                justify-content: center;
+
                 .image-container {
                     span {
                         position: relative !important;

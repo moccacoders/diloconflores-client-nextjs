@@ -16,7 +16,7 @@ const CartItem: FunctionComponent<ICartItemProps> = ({
     return (
         <div className="cart-item">
             <div className="cart-item--image">
-                <img src={"/bruce-wayne.jpg"} width={50} />
+                <Image src={"/bruce-wayne.jpg"} width={50} />
             </div>
             <div className="cart-item--description">
                 <h4 className="cart-item--description-name">{name}</h4>

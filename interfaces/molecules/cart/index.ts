@@ -14,4 +14,5 @@ export interface CartItem {
 
 export interface ICartListProps {
 	items: Array<CartItem>
+	open?: boolean
 }

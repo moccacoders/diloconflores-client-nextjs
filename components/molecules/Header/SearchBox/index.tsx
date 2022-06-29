@@ -49,7 +49,7 @@ const SearchBox: FunctionComponent = () => {
 
     const handleInput = (evt) => {
         const {
-            target: { name, value },
+            target: { value },
         } = evt
 
         setSearch(value)

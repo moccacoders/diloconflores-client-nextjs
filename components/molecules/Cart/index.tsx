@@ -1,4 +1,4 @@
-import { FunctionComponent, useState } from "react"
+import { FunctionComponent } from "react"
 import { ButtonIcon } from "atoms/Buttons"
 
 const FloatCart: FunctionComponent = () => {

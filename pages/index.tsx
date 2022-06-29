@@ -1,6 +1,7 @@
 import React, { useState } from "react"
 
-const Timeline = () => {
+const Timeline = (props) => {
+    console.log("props", props)
     const [count, setCount] = useState(0)
     const increase = () => {
         setCount(count + 1)

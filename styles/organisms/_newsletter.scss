@@ -1,0 +1,41 @@
+#newsletter-subscriber {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: $white;
+    height: 200px;
+
+    @include media-breakpoint-down("lg") {
+        height: auto;
+    }
+
+    .newsletter-subscriber--container {
+        display: flex;
+        width: 100%;
+        max-width: $max-width-screen;
+        align-items: center;
+
+        @include media-breakpoint-down("lg") {
+            flex-direction: column;
+            padding: 20px 0px;
+        }
+
+        .newsletter-subscriber--item {
+            width: 40%;
+            padding: 10px 20px;
+
+            p {
+                margin: 0px;
+            }
+
+            &:nth-child(1) {
+                text-align: left;
+                width: 60%;
+            }
+
+            @include media-breakpoint-down("lg") {
+                width: 100% !important;
+            }
+        }
+    }
+}

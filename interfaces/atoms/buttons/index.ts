@@ -11,7 +11,7 @@ export interface IButtonDefault {
 		| undefined
 		| any
 	className?: string
-	disabled?: string | boolean
+	disabled?: boolean
 	icon?: string
 	iconPosition?: "left" | "right"
 	onClick?: (e?: any) => void
@@ -53,11 +53,12 @@ export interface IButtonLink extends IButtonDefault, LinkProps {
 	button?: boolean
 	href: any
 	passHref?: boolean
+	disabled?: boolean
 }
 
 export interface IButtonIcon {
 	className?: string
-	disabled?: string | boolean
+	disabled?: boolean
 	icon?: string
 	onClick?: (e?: any) => void
 	outline?: boolean

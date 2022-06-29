@@ -10,7 +10,7 @@ const TopBar: FunctionComponent = () => {
     return (
         <div id="top-bar">
             <div className="top-bar--content">
-                <div className="top-bar--item">
+                <div className="top-bar--item only-desktop">
                     <Dropdown
                         items={[
                             { value: "es-MX", text: "Español" },
@@ -30,7 +30,7 @@ const TopBar: FunctionComponent = () => {
                         swipeToTop={false}
                     />
                 </div>
-                <div className="top-bar--item">
+                <div className="top-bar--item user-section">
                     <Link href="/login" style="light">
                         Iniciar Sesión
                     </Link>

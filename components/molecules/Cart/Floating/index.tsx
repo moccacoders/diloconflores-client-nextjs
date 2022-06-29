@@ -1,9 +1,28 @@
-import { FunctionComponent, useState } from "react"
+import { FunctionComponent, useState, useRef, useEffect } from "react"
 import { ButtonIcon } from "atoms/Buttons"
 import CartList from "molecules/Cart/List"
 
 const Floating: FunctionComponent = () => {
+    const ref = useRef(null)
     const [show, setShow] = useState(false)
+
+    useEffect(() => {
+        const handleClickOutsideNavBar = (event) => {
+            if (ref.current && !ref.current.contains(event.target)) {
+                document.body.classList.contains("mobile-cart-list-opened") &&
+                    toggleOpenCart()
+            }
+        }
+        document.addEventListener("click", handleClickOutsideNavBar, true)
+        return () => {
+            document.removeEventListener(
+                "click",
+                handleClickOutsideNavBar,
+                true
+            )
+        }
+    }, [])
+
     const items = [
         {
             id: 1,
@@ -22,10 +41,12 @@ const Floating: FunctionComponent = () => {
         },
     ]
 
-    const handleClick = () => {
+    const toggleOpenCart = () => {
         setShow(!show)
+        document.body.classList.toggle("mobile-cart-list-opened")
     }
 
+    console.log(ref.current)
     return (
         <div className="cart-container cart-floating">
             <ButtonIcon
@@ -33,9 +54,9 @@ const Floating: FunctionComponent = () => {
                 transparent
                 size="lg"
                 badge={items.length}
-                onClick={handleClick}
+                onClick={toggleOpenCart}
             />
-            {show && <CartList items={items} />}
+            <CartList ref={ref} open={show} items={items} />
         </div>
     )
 }

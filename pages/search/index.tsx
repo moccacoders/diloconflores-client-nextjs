@@ -1,5 +1,3 @@
-import { FunctionComponent } from "react"
-
 const Search = ({ query, category }) => {
     return (
         <>

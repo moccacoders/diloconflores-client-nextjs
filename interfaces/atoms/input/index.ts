@@ -40,3 +40,9 @@ export interface IInputProps {
 	onKeyUp?: KeyboardEventHandler<any> | undefined
 	onKeyDown?: KeyboardEventHandler<any> | undefined
 }
+
+export interface IInputEmailProps extends IInputProps {
+	onError?: (error: object) => void
+	onSuccess?: ChangeEventHandler<any> | undefined
+	showSuccess?: boolean
+}

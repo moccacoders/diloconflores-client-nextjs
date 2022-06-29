@@ -17,6 +17,14 @@
             padding: 5px 10px;
             width: 100%;
 
+            @include media-breakpoint-down("lg") {
+                &.user-section {
+                    .link:nth-child(1) {
+                        order: 2;
+                    }
+                }
+            }
+
             .dropdown {
                 &:nth-child(2) {
                     margin-left: 5px;
@@ -36,6 +44,11 @@
                 .link {
                     &:nth-child(2) {
                         margin-left: 10px;
+
+                        @include media-breakpoint-down("lg") {
+                            margin-left: 0px;
+                            margin-right: 10px;
+                        }
                     }
 
                     &.signup {

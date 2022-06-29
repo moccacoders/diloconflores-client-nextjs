@@ -131,3 +131,9 @@ h1,
         flex-direction: column;
     }
 }
+
+@include media-breakpoint-down("lg") {
+    .only-desktop {
+        display: none !important;
+    }
+}

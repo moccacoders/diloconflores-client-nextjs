@@ -1,13 +1,13 @@
 import Head from "next/head"
-import Image from "next/image"
 import Header from "organisms/Header"
 import TopBar from "organisms/TopBar"
 import NavBar from "organisms/NavBar"
+import Newsletter from "organisms/Newsletter"
 import Footer from "organisms/Footer"
 
 import "styles/styles.scss"
 
-const MyApp = ({ Component, pageProps }) => {
+const MyApp = ({ Component, pageProps, menu }) => {
     return (
         <div className={"app--container"}>
             <Head>
@@ -22,11 +22,29 @@ const MyApp = ({ Component, pageProps }) => {
             <Header />
             <NavBar />
             <main className={"app--main"}>
-                <Component {...pageProps} />
+                <Component {...pageProps} menu={menu} />
             </main>
+            <Newsletter />
             <Footer />
         </div>
     )
 }
+
+// MyApp.getInitialProps = async (appContext) => {
+//   const {req} = appContext.ctx;
+//   const appProps = await App.getInitialProps(appContext);
+
+//   try {
+//     const store = await fetch(()))
+//     const { menu } = await store.json();
+//     console.log('req', req)
+//     if(!req) localStorage.setItem('store-menu', menu)
+//     return { ...appProps, menu }
+//   } catch (e) {
+//     console.log(e)
+//     return { ...appProps }
+//   }
+
+// }
 
 export default MyApp

@@ -1,4 +1,4 @@
-import { ReactElement, ChangeEventHandler } from "react"
+import { ChangeEventHandler } from "react"
 import { IButtonDefault } from "interfaces/atoms/buttons"
 
 export interface DropdownItem {
@@ -10,7 +10,7 @@ export interface IDropdownProps extends IButtonDefault {
 	children?: null | undefined
 	items: Array<string> | Array<DropdownItem>
 	placeholder?: string | null
-	value?: <DropdownItem>,
 	onChange: (element: any, event: ChangeEventHandler<any> | undefined) => void
 	preservePlaceholder?: boolean
+	value: DropdownItem
 }

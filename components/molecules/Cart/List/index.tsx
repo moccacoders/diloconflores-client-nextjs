@@ -1,11 +1,20 @@
-import { FunctionComponent } from "react"
+import classnames from "classnames"
+import { FunctionComponent, forwardRef } from "react"
 import { ICartListProps } from "interfaces/molecules/cart"
 import CartItem from "molecules/Cart/Item"
 
-const CartList: FunctionComponent<ICartListProps> = ({ items = [] }) => {
+const CartList: FunctionComponent<ICartListProps> = forwardRef((props, ref) => {
+    const { items = [], open = false } = props
     return (
         <>
-            <div className="cart-list">
+            <div
+                ref={ref}
+                id="cart-list"
+                className={classnames({
+                    "cart-list": true,
+                    opened: open,
+                })}
+            >
                 {items.length > 0 ? (
                     items.map((item, ind) => <CartItem item={item} key={ind} />)
                 ) : (
@@ -14,6 +23,8 @@ const CartList: FunctionComponent<ICartListProps> = ({ items = [] }) => {
             </div>
         </>
     )
-}
+})
+
+CartList.displayName = "CartList"
 
 export default CartList
