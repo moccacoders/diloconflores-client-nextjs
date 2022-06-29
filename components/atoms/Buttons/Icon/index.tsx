@@ -17,7 +17,7 @@ const ButtonIcon: FunctionComponent<IButtonIcon> = ({
     icon = null,
     transparent = false,
     title,
-    tooltipPlacement = "",
+    tooltipPlacement = "topEnd",
     badge,
     badgeType,
 }) => {
